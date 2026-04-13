@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrivMark — A fast, private markdown editor</title>
+  <meta name="description" content="A fast, beautiful desktop markdown editor with live preview, dark mode, WYSIWYG editing, and PDF export. Privacy-first. No telemetry. Free.">
+  <meta name="theme-color" content="#0366d6">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PrivMark — A fast, private markdown editor">
+  <meta property="og:description" content="Write markdown beautifully. Live preview, dark mode, WYSIWYG editing, PDF export. Privacy-first. Free.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://privmark.app">
+  <meta property="og:image" content="https://privmark.app/screenshot.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PrivMark — A fast, private markdown editor">
+  <meta name="twitter:description" content="Write markdown beautifully. Privacy-first. Free.">
+  <meta name="twitter:image" content="https://privmark.app/screenshot.png">
+
+  <style>
+    :root {
+      --accent: #1a1a1a;
+      --accent-hover: #333;
+      --bg: #fafaf8;
+      --bg-secondary: #f3f2ee;
+      --text: #1a1a1a;
+      --text-secondary: #555;
+      --text-tertiary: #888;
+      --border: #e5e3dd;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- Hero --- */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 60px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-tertiary);
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--text-tertiary);
+    }
+
+    /* --- Screenshot --- */
+    .screenshot {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .screenshot img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    }
+
+    /* --- Features --- */
+    .features {
+      background: var(--bg-secondary);
+      padding: 80px 24px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .features-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 48px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .feature-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    /* --- Privacy --- */
+    .privacy {
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .privacy-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .privacy h2 {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .privacy > .privacy-inner > p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: 36px;
+    }
+
+    .privacy-list {
+      list-style: none;
+      text-align: left;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .privacy-list li {
+      padding: 10px 0;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .privacy-list li::before {
+      content: "\2014";
+      color: var(--text-tertiary);
+      font-weight: 400;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .privacy-max {
+      max-width: 560px;
+      margin: 44px auto 0;
+      padding: 24px 28px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-align: left;
+      background: var(--bg-secondary);
+    }
+
+    .privacy-max h3 {
+      font-size: 17px;
+      margin: 0 0 10px;
+      font-weight: 600;
+    }
+
+    .privacy-max p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin: 0 0 14px;
+      line-height: 1.55;
+    }
+
+    .privacy-max ol {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .privacy-max code {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    /* --- Coming Soon --- */
+    .coming-soon {
+      background: var(--bg-secondary);
+      padding: 80px 24px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .coming-soon-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .coming-soon h2 {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .coming-soon > .coming-soon-inner > p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: 36px;
+    }
+
+    .ai-features {
+      list-style: none;
+      text-align: left;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .ai-features li {
+      padding: 10px 0;
+      font-size: 16px;
+    }
+
+    .ai-features li strong {
+      color: var(--text);
+    }
+
+    .coming-soon .price-note {
+      margin-top: 32px;
+      padding: 16px 24px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      display: inline-block;
+    }
+
+    /* --- Download --- */
+    .download {
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .download h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .download > p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: 36px;
+    }
+
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .download-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.15s ease;
+    }
+
+    .download-card:hover {
+      border-color: var(--text-tertiary);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .download-card .os {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .download-card .arch {
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
+    .download-note {
+      margin-top: 24px;
+      font-size: 14px;
+      color: var(--text-tertiary);
+    }
+
+    .download-note a {
+      color: var(--text-secondary);
+      text-decoration: underline;
+    }
+
+    .download-note a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Footer --- */
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text-tertiary);
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 640px) {
+      .hero { padding: 48px 20px 40px; }
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 17px; }
+      .features, .privacy, .coming-soon, .download { padding: 56px 20px; }
+      .features h2, .privacy h2, .coming-soon h2, .download h2 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <span class="hero-badge">Free forever — Pro features coming soon</span>
+    <h1>Write markdown.<br>Beautifully.</h1>
+    <p>A fast, private desktop editor with live preview, dark mode, WYSIWYG editing, and PDF export.</p>
+    <div class="hero-buttons">
+      <a href="https://github.com/wolfberry-ab/privmark/releases/latest" class="btn btn-primary">
+        Download for free
+      </a>
+      <a href="https://github.com/wolfberry-ab/privmark" class="btn btn-secondary">
+        View on GitHub
+      </a>
+    </div>
+    <p class="hero-meta">Windows, macOS &amp; Linux. No account required.</p>
+  </section>
+
+  <!-- Screenshot -->
+  <section class="screenshot">
+    <img src="screenshot-mac.png" alt="PrivMark editor on macOS showing split-pane view with markdown and live preview">
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="features-inner">
+      <h2>Everything you need to write</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">&#9998;</span>
+          <h3>Live Preview</h3>
+          <p>Split-pane editing with instant preview. See your rendered markdown as you type.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">&#9790;</span>
+          <h3>Dark Mode</h3>
+          <p>One-click toggle between light and dark themes. Follows your system preference.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">&#10000;</span>
+          <h3>WYSIWYG Editing</h3>
+          <p>Live view hides markdown syntax and shows formatted text. Click to reveal and edit.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">&#128196;</span>
+          <h3>PDF &amp; HTML Export</h3>
+          <p>Export your documents as beautiful PDFs or standalone HTML files with one shortcut.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">&#128161;</span>
+          <h3>Syntax Highlighting</h3>
+          <p>180+ programming languages highlighted in code blocks. Powered by highlight.js.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">&#128274;</span>
+          <h3>Privacy First</h3>
+          <p>Zero telemetry. No account. No cloud. Your files never leave your machine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy -->
+  <section class="privacy">
+    <div class="privacy-inner">
+      <h2>Your writing. Your privacy.</h2>
+      <p>Built by <a href="https://wolfberry.se" style="color: var(--text); text-decoration: underline; text-underline-offset: 2px;">Wolfberry AB</a>, a security-focused Swedish software company.</p>
+      <ul class="privacy-list">
+        <li>No telemetry, no analytics, no crash reporting</li>
+        <li>No account required — download, install, write</li>
+        <li>No cloud dependency — everything runs locally</li>
+        <li>Your files stay on your machine — always</li>
+        <li>Windows installers signed by Wolfberry AB — verify the publisher before installing</li>
+      </ul>
+
+      <div class="privacy-max">
+        <h3>Max privacy mode</h3>
+        <p>
+          PrivMark only makes two network calls, both optional: a license
+          activation (once, at first launch) and an update check (on launch,
+          if enabled). For a fully offline experience:
+        </p>
+        <ol>
+          <li>Activate your license once on any internet-connected machine — after that, PrivMark works fully offline.</li>
+          <li>Disable automatic updates in <strong>Settings &rarr; Updates</strong>, or launch with <code>privmark --no-auto-updates</code>.</li>
+          <li>Install and update manually by downloading releases directly from GitHub.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coming Soon -->
+  <section class="coming-soon">
+    <div class="coming-soon-inner">
+      <h2>AI writing assistance — coming soon</h2>
+      <p>Built into the editor, not bolted on. With local model support for full privacy.</p>
+      <ul class="ai-features">
+        <li><strong>Continue writing</strong> — AI writes the next paragraph in your style</li>
+        <li><strong>Rewrite selection</strong> — make it shorter, formal, or clearer</li>
+        <li><strong>Fix grammar</strong> — one-click proofread without leaving the app</li>
+        <li><strong>Smart tables</strong> — describe in plain English, get formatted markdown</li>
+        <li><strong>Local AI</strong> — run models on your machine, text never leaves your computer</li>
+      </ul>
+      <div class="price-note">
+        The editor is free forever. AI-powered Pro features coming soon ($9 one-time).
+      </div>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section class="download">
+    <h2>Download PrivMark</h2>
+    <p>Free forever. No account needed.</p>
+    <div class="download-grid">
+      <a href="https://github.com/wolfberry-ab/privmark/releases/latest" class="download-card" data-asset="Setup.*x64\.exe$">
+        <div class="os">Windows</div>
+        <div class="arch">x64 installer</div>
+      </a>
+      <a href="https://github.com/wolfberry-ab/privmark/releases/latest" class="download-card" data-asset="Setup.*arm64\.exe$">
+        <div class="os">Windows ARM</div>
+        <div class="arch">ARM64 installer</div>
+      </a>
+      <a href="https://github.com/wolfberry-ab/privmark/releases/latest" class="download-card" data-asset="linux-x64.*\.zip$">
+        <div class="os">Linux</div>
+        <div class="arch">x64 portable</div>
+      </a>
+      <a href="https://github.com/wolfberry-ab/privmark/releases/latest" class="download-card" data-asset="linux-arm64.*\.zip$">
+        <div class="os">Linux ARM</div>
+        <div class="arch">ARM64 portable</div>
+      </a>
+      <a href="https://github.com/wolfberry-ab/privmark/releases/latest" class="download-card" data-asset="darwin-x64.*\.zip$">
+        <div class="os">macOS Intel</div>
+        <div class="arch">x64 (unsigned)</div>
+      </a>
+      <a href="https://github.com/wolfberry-ab/privmark/releases/latest" class="download-card" data-asset="darwin-arm64.*\.zip$">
+        <div class="os">macOS Apple Silicon</div>
+        <div class="arch">ARM64 (unsigned)</div>
+      </a>
+    </div>
+    <p class="download-note">
+      All releases include SHA256 checksums.
+      <a href="https://github.com/wolfberry-ab/privmark/releases">View all releases</a>
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      Made by <a href="https://wolfberry.se">Wolfberry AB</a> in Sweden.
+      &nbsp;&middot;&nbsp;
+      <a href="https://github.com/wolfberry-ab/privmark">GitHub</a>
+      &nbsp;&middot;&nbsp;
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:hello@privmark.app">Contact</a>
+    </p>
+    <p style="margin-top: 8px;">&copy; 2026 Wolfberry AB. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Rewrite download cards to point directly at the latest release assets.
+    // Falls back to the /releases/latest page if the API call fails.
+    (function () {
+      var API = 'https://api.github.com/repos/wolfberry-ab/privmark/releases/latest';
+      fetch(API, { headers: { Accept: 'application/vnd.github+json' } })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (release) {
+          if (!release || !release.assets) return;
+          document.querySelectorAll('.download-card[data-asset]').forEach(function (card) {
+            var pattern = new RegExp(card.getAttribute('data-asset'));
+            var match = release.assets.find(function (a) { return pattern.test(a.name); });
+            if (match) card.href = match.browser_download_url;
+          });
+        })
+        .catch(function () { /* keep fallback href */ });
+    })();
+  </script>
+
+</body>
+</html>
