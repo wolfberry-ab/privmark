@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Privacy Policy — PrivMark</title>
+  <meta name="description" content="How PrivMark handles your data. Short answer: almost none of it.">
+  <meta name="theme-color" content="#fafaf8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafaf8;
+      --bg-secondary: #f3f2ee;
+      --text: #1a1a1a;
+      --text-secondary: #555;
+      --text-tertiary: #888;
+      --border: #e5e3dd;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+    .back {
+      display: inline-block;
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-bottom: 32px;
+    }
+    .back:hover { color: var(--text); }
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .updated {
+      font-size: 14px;
+      color: var(--text-tertiary);
+      margin-bottom: 40px;
+    }
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 36px 0 12px;
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 24px 0 8px;
+    }
+    p, li {
+      font-size: 16px;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    ul, ol {
+      padding-left: 24px;
+      margin-bottom: 12px;
+    }
+    a {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .tldr {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 24px 0 32px;
+    }
+    .tldr h2 { margin-top: 0; }
+    code {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 14px;
+    }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text-tertiary);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="/">&larr; Back to PrivMark</a>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: 23 April 2026</p>
+
+    <div class="tldr">
+      <h2>TL;DR</h2>
+      <p>PrivMark is a desktop app that runs entirely on your machine. We don't collect telemetry, analytics, or crash reports. License activation is fully offline (no network call). The app only contacts the network for optional update checks (which you can disable). Your documents never leave your computer.</p>
+    </div>
+
+    <h2>Who we are</h2>
+    <p><strong>Wolfberry AB</strong>, a Swedish limited company (org.nr 559269-4599, VAT SE559269459901), is the data controller for PrivMark. Support: <a href="mailto:hello@privmark.app">hello@privmark.app</a>. Billing: <a href="mailto:payments@wolfberry.se">payments@wolfberry.se</a>.</p>
+
+    <h2>What we collect and why</h2>
+
+    <h3>License activation (zero network calls)</h3>
+    <p>Activation happens <strong>entirely on your device</strong>. The license file you receive by email after purchase contains an Ed25519 digital signature, which PrivMark verifies using a public key embedded in the app. No data is sent to us — activation is local, works fully offline, and leaves no record on any server.</p>
+    <ul>
+      <li><strong>Legal basis:</strong> contract performance (GDPR Article 6(1)(b))</li>
+      <li><strong>Recipient:</strong> none — verification is local</li>
+      <li><strong>Transmitted:</strong> nothing</li>
+    </ul>
+
+    <h3>License issuance (on your purchase)</h3>
+    <p>When you buy PrivMark Pro, our licensing service (a Cloudflare Worker operated by Wolfberry AB in the EU region) generates a signed license file from your order details and emails it to you via Resend, Inc. Your personal data stays within this pipeline — we do not share it with third parties beyond the sub-processors listed below.</p>
+    <ul>
+      <li><strong>Legal basis:</strong> contract performance (GDPR Article 6(1)(b))</li>
+      <li><strong>Recipients:</strong> Cloudflare, Inc. (Worker runtime + D1 database); Resend, Inc. (email delivery)</li>
+      <li><strong>Transmitted:</strong> your email address, order id, license key, purchase timestamp</li>
+      <li><strong>Not transmitted:</strong> your name, payment details (those stay with the Merchant of Record), documents, or usage</li>
+    </ul>
+
+    <h3>Update checks (optional, on launch)</h3>
+    <p>If automatic updates are enabled (the default), PrivMark fetches <code>latest.yml</code> from GitHub Releases approximately 3 seconds after launch to see if a newer version is available. GitHub receives your IP address and user-agent as part of this standard HTTP request. You can disable this at any time in <strong>Settings &rarr; Updates</strong>, or permanently by launching the app with <code>--no-auto-updates</code>.</p>
+    <ul>
+      <li><strong>Legal basis:</strong> legitimate interest in providing security updates (GDPR Article 6(1)(f))</li>
+      <li><strong>Recipient:</strong> GitHub, Inc.</li>
+      <li><strong>Transmitted:</strong> none from our side; GitHub logs standard request metadata</li>
+    </ul>
+
+    <h3>Purchase (if you buy a license)</h3>
+    <p>Payment is handled by our Merchant of Record, <strong>Polar Software AB</strong> (Stockholm, Sweden). Polar collects the personal data required to process payment and issue invoices (name, email, billing address, VAT number if applicable). We receive only the information needed to issue and track your license: your email, order id, and amount. For Polar's own privacy practices, see <a href="https://polar.sh/legal/privacy" rel="noopener">polar.sh/legal/privacy</a>.</p>
+
+    <h2>What we don't do</h2>
+    <ul>
+      <li>No telemetry, usage analytics, or feature tracking</li>
+      <li>No crash reporting (no Sentry, no Bugsnag, no Google Crashpad)</li>
+      <li>No advertising identifiers</li>
+      <li>No cookies (the app is not a web app; the landing page uses none)</li>
+      <li>No document content leaves your device — ever</li>
+      <li>No account required to use the app</li>
+    </ul>
+
+    <h2>Data stored on your device</h2>
+    <p>PrivMark stores the following files locally, in your operating system's user data directory:</p>
+    <ul>
+      <li><strong>settings.json</strong> — your preferences</li>
+      <li><strong>window-state.json</strong> — last window size and position</li>
+      <li><strong>license.privmark</strong> — your signed Pro license file (if licensed)</li>
+      <li><strong>trial.json</strong> — trial start date (if in trial)</li>
+    </ul>
+    <p>These files never leave your device. Deleting the app removes them.</p>
+
+    <h2>Retention</h2>
+    <p>We retain purchase records (email, order id) for as long as required by Swedish bookkeeping law (<em>bokföringslagen</em>, 7 years). License records remain in our database indefinitely so we can reissue licenses if customers lose their copy. Upon request we will delete personal data where legally possible (see "Your rights" below).</p>
+
+    <h2>Your rights under GDPR</h2>
+    <p>If you live in the European Economic Area, Switzerland, or the United Kingdom, you have the right to:</p>
+    <ul>
+      <li>Access the personal data we hold about you</li>
+      <li>Correct inaccurate data</li>
+      <li>Request deletion (subject to our bookkeeping retention obligations)</li>
+      <li>Receive your data in a portable format</li>
+      <li>Object to processing based on legitimate interest</li>
+      <li>Lodge a complaint with your local supervisory authority (in Sweden: <a href="https://www.imy.se" rel="noopener">Integritetsskyddsmyndigheten</a>)</li>
+    </ul>
+    <p>To exercise any of these rights, email <a href="mailto:hello@privmark.app">hello@privmark.app</a>.</p>
+
+    <h2>Sub-processors and international transfers</h2>
+    <p>We use the following sub-processors to deliver PrivMark:</p>
+    <ul>
+      <li><strong>Polar Software AB</strong> (Stockholm, Sweden) — Merchant of Record for payment processing</li>
+      <li><strong>Cloudflare, Inc.</strong> (US) — Workers runtime, D1 database (EU region), R2 storage</li>
+      <li><strong>Resend, Inc.</strong> (US) — transactional email delivery for license files</li>
+      <li><strong>GitHub, Inc.</strong> (US) — release hosting for app updates</li>
+    </ul>
+    <p>Transfers to US-based providers are governed by Standard Contractual Clauses and, where applicable, the EU–US Data Privacy Framework.</p>
+    <p>We also retain a policy date trail so you can review what the list looked like at the time of your purchase. Past entries remain in the repository's git history on GitHub.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If we make material changes, we'll update the date at the top of this page and — for existing customers — notify you via email to the address associated with your purchase.</p>
+
+    <footer>
+      Made by <a href="https://wolfberry.se">Wolfberry AB</a>, Sweden.
+    </footer>
+  </main>
+</body>
+</html>
