@@ -1,0 +1,145 @@
+{
+  "schema": 2,
+  "appVersion": "1.16.1",
+  "sourceSha256": "5aa2c6c4f9feb17612d5a2ae50612a9fb167c971a32e5a2fe4622be1aef2e387",
+  "dependenciesSha256": "3c8f5925864d634f3c27d84fd08f310c7e4d0c26b25c45ba98ad27da1048be67",
+  "recipeSha256": "b869e31947b1846c2e1a1e037d4600c6d3bd0da084aada1cd4dc00aa2ca3c6b0",
+  "fixtureSha256": "81cfd170a6563ee5d8f82445633c741dc0af6214ac32b9ef3f7feffab4054e20",
+  "environment": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "os": "25.6.0",
+    "node": "23.11.0",
+    "electron": "40.8.5",
+    "chromium": "144.0.7559.236",
+    "playwright": "1.62.1",
+    "sharp": "0.34.5",
+    "vips": "8.17.3"
+  },
+  "verification": {
+    "independentProfiles": 2,
+    "comparison": "identical PNG bytes",
+    "stableFrames": 3
+  },
+  "images": [
+    {
+      "file": "editor-light.webp",
+      "view": "live",
+      "theme": "light",
+      "slimPaper": false,
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "scale": 2,
+      "sha256": "c8bd489dcc08b432d2403197102c686a36df7b90e847af4e331529a2821f7ba5",
+      "captureSha256": "fc8946974e56cefce9fe93038863dd2ee5562ffda0d4222dd0f6244172d8ef41",
+      "fonts": {
+        "ui": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+        "writing": "\"Iowan Old Style\", \"Palatino Linotype\", \"Book Antiqua\", Palatino, Georgia, serif"
+      }
+    },
+    {
+      "file": "editor-dark.webp",
+      "view": "live",
+      "theme": "dark",
+      "slimPaper": false,
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "scale": 2,
+      "sha256": "10ec8f2c5a1cb932db7173f82f36bd877461cd6fdb5b2f8fd552ae146e91f74c",
+      "captureSha256": "d067fbe6436b64457552e426fc92b512f44713e64fd941f8703beded4698cf7f",
+      "fonts": {
+        "ui": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+        "writing": "\"Iowan Old Style\", \"Palatino Linotype\", \"Book Antiqua\", Palatino, Georgia, serif"
+      }
+    },
+    {
+      "file": "editor-light-narrow.webp",
+      "view": "live",
+      "theme": "light",
+      "slimPaper": false,
+      "viewport": {
+        "width": 640,
+        "height": 800
+      },
+      "scale": 2,
+      "sha256": "03944e92beec29ceee6b6123321b062d303f2c0a7bcfa3f7e35e042da8b0dc96",
+      "captureSha256": "05a5e8acab9c581a11c24a9c2ff39c4b45df064a16b9fe610cfab7e994af4a32",
+      "fonts": {
+        "ui": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+        "writing": "\"Iowan Old Style\", \"Palatino Linotype\", \"Book Antiqua\", Palatino, Georgia, serif"
+      }
+    },
+    {
+      "file": "editor-dark-narrow.webp",
+      "view": "live",
+      "theme": "dark",
+      "slimPaper": false,
+      "viewport": {
+        "width": 640,
+        "height": 800
+      },
+      "scale": 2,
+      "sha256": "20e96cc16afefcf480fe1c19ba754b5798f49f53a550d5a3d1537e262136a82e",
+      "captureSha256": "a2fc2694fc1acf94252d8545c1f36ff242a145419128b8a44db57e1b7b98105b",
+      "fonts": {
+        "ui": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+        "writing": "\"Iowan Old Style\", \"Palatino Linotype\", \"Book Antiqua\", Palatino, Georgia, serif"
+      }
+    },
+    {
+      "file": "paper-light.webp",
+      "view": "live",
+      "theme": "light",
+      "slimPaper": true,
+      "viewport": {
+        "width": 720,
+        "height": 600
+      },
+      "scale": 2,
+      "sha256": "7881b701e550dad4e9866ee29281c341448c7289b820dd93d0ce46c7ba58ef30",
+      "captureSha256": "afea1a2f8654f000572a09751a144ce0925f03b7e8717122a2222f58b562cb9b",
+      "fonts": {
+        "ui": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+        "writing": "\"Iowan Old Style\", \"Palatino Linotype\", \"Book Antiqua\", Palatino, Georgia, serif"
+      }
+    },
+    {
+      "file": "paper-dark.webp",
+      "view": "live",
+      "theme": "dark",
+      "slimPaper": true,
+      "viewport": {
+        "width": 720,
+        "height": 600
+      },
+      "scale": 2,
+      "sha256": "1e654f1cc9322f85a0c91a4b7dae1e1d83bb60fe057e6812a6f726b631c41345",
+      "captureSha256": "451658484c8ba6aa89161c36803df2a328b6a802355ec786ab69e67563652b7e",
+      "fonts": {
+        "ui": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+        "writing": "\"Iowan Old Style\", \"Palatino Linotype\", \"Book Antiqua\", Palatino, Georgia, serif"
+      }
+    },
+    {
+      "file": "editor-social.png",
+      "view": "live",
+      "theme": "light",
+      "slimPaper": false,
+      "viewport": {
+        "width": 1200,
+        "height": 630
+      },
+      "scale": 1,
+      "sha256": "f96c4236f724d01b2e4b6dc6fa1cbeb7a64aa47c74d1d68c6b9ebd5a04a74212",
+      "captureSha256": "ec316f97f7d2f4f3a101005627f3ed6a416dc2a50429112adf84b5a84f3c844c",
+      "fonts": {
+        "ui": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+        "writing": "\"Iowan Old Style\", \"Palatino Linotype\", \"Book Antiqua\", Palatino, Georgia, serif"
+      }
+    }
+  ]
+}
