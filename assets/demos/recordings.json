@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "appVersion": "1.18.0",
+  "sourceSha256": "7c25a283b37f0fc42d7f7605dff7585ee56a8f33ae09d7661d50acfb9623e7c6",
+  "recorder": {
+    "name": "GojiGif",
+    "version": "0.2.0",
+    "fps": 10,
+    "cursor": false
+  },
+  "capture": "ScreenCaptureKit, isolated native app window including macOS title bar",
+  "optimization": "Sharp GIF delta compression; original frame timing preserved",
+  "recordings": [
+    {
+      "file": "four-views.gif",
+      "poster": "four-views.webp",
+      "width": 1920,
+      "height": 1344,
+      "durationMs": 9410,
+      "frames": 17,
+      "bytes": 444258,
+      "sha256": "083865b0f319ce485abe3d4034bfc1886e5d9ebf92565d1356f04f6480657f6c",
+      "posterAtMs": 3400,
+      "capturedFrames": 94,
+      "rawSha256": "79de3b54fe488f376fb7f809c1df90e2ad3b71ac7ff6063d746240590d795f81"
+    },
+    {
+      "file": "slim-paper.gif",
+      "poster": "slim-paper.webp",
+      "width": 1920,
+      "height": 1344,
+      "durationMs": 8000,
+      "frames": 14,
+      "bytes": 341440,
+      "sha256": "69fea1ce3a290eafa8c05864d6d32ac8fd995fbac4cade3ec0829ace1aeab871",
+      "posterAtMs": 1700,
+      "capturedFrames": 80,
+      "rawSha256": "1696cbbf01c0a6d6e9cefca7a7ccdbdd48c2e1af889bd4f569b3a935d698bd0f"
+    },
+    {
+      "file": "live-formatting.gif",
+      "poster": "live-formatting.webp",
+      "width": 1920,
+      "height": 1344,
+      "durationMs": 8210,
+      "frames": 58,
+      "bytes": 179005,
+      "sha256": "2b7dc909bfdaf2481300e49664c5093528b1b3604ab81ec83c58bc8eab19e145",
+      "posterAtMs": 8209,
+      "capturedFrames": 82,
+      "rawSha256": "19e3dee1285344b3a2bf2f83fb2b249a72b9bfc462df8305f0cbba60f9a9f869"
+    }
+  ]
+}
